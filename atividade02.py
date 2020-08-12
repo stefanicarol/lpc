@@ -91,7 +91,7 @@ class ArtigoCientifico:
 
     def addAutor(self, Autor):
          self.autores.append(Autor.nome)
-         Autor.artigos.append(artigo)
+         Autor.artigos.append(artigo.titulo)
 
     def autores(self):
         for autores in self.autores:
@@ -111,11 +111,14 @@ realizador = PessoaFisica('stefani','carol@com','88888888')
 endereco = Endereco('Palmas','TO','405 NORTE','3','77002-018')
 evento = Evento('nome', 'eventoPrincipal', 'sigla', 'dataHoraDeInicio', 'palavrasChave', 'logotipo', realizador, endereco)
 eventoC = EventoCientifico('nome', 'eventoPrincipal', 'sigla', 'dataHoraDeInicio', 'palavrasChave', 'logotipo', 'realizador', 'endereco', 'issn')
-artigo = ArtigoCientifico('TT','evento')
+artigo = ArtigoCientifico('T1','evento')
+artigo2 = ArtigoCientifico('T2','evento')
 autor = Autor('carol', 'carol@mmgm.com','curicu')
 autor2 = Autor('stefani','jskaj','kkskak')
 artigo.addAutor(autor)
 artigo.addAutor(autor2)
+artigo2.addAutor(autor)
+artigo2.addAutor(autor2)
 print(artigo)
 print(eventoC)
 print(autor)

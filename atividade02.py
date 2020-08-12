@@ -105,6 +105,10 @@ class ArtigoCientifico:
 
 
 
+#####TESTES
+realizador = PessoaFisica('stefani','carol@com','88888888')
+endereco = Endereco('Palmas','TO','405 NORTE','3','77002-018')
+evento = Evento('nome', 'eventoPrincipal', 'sigla', 'dataHoraDeInicio', 'palavrasChave', 'logotipo', realizador, endereco)
 eventoC = EventoCientifico('nome', 'eventoPrincipal', 'sigla', 'dataHoraDeInicio', 'palavrasChave', 'logotipo', 'realizador', 'endereco', 'issn')
 artigo = ArtigoCientifico('TT','evento')
 autor = Autor('carol', 'carol@mmgm.com','curicu')

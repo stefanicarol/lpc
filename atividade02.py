@@ -91,6 +91,7 @@ class ArtigoCientifico:
 
     def addAutor(self, Autor):
          self.autores.append(Autor.nome)
+         Autor.artigos.append(artigo)
 
     def autores(self):
         for autores in self.autores:
@@ -117,3 +118,5 @@ artigo.addAutor(autor)
 artigo.addAutor(autor2)
 print(artigo)
 print(eventoC)
+print(autor)
+print(autor2)

@@ -9,9 +9,8 @@ class Pessoa:
             self.email
         )
 
-
 class PessoaJuridica(Pessoa):
-    def __init__(self,nome, email, cnpj, razaoSocial):
+    def __init__(self, nome, email, cnpj, razaoSocial):
         self.cnpj = cnpj
         self.razaoSocial = razaoSocial
         super().__init__(nome, email)
@@ -26,7 +25,7 @@ class PessoaJuridica(Pessoa):
 
 
 class PessoaFisica(Pessoa):
-    def __init__(self,nome, email, cpf):
+    def __init__(self, nome, email, cpf):
         self.cpf = cpf
         super().__init__(nome, email)
 
@@ -34,7 +33,7 @@ class PessoaFisica(Pessoa):
          return 'Nome: {} E-mail:{} CNPJ:{}'.format(
             self.nome,
             self.email,
-            self.cpf,
+            self.cpf
         )
 
 class Autor(Pessoa):
@@ -42,6 +41,11 @@ class Autor(Pessoa):
         self.curriculo = curriculo
         self.artigos = []
         super().__init__(nome, email)
+
+    def imprime(self):
+        print('Artigos: ')
+        for item in self.artigos:
+            print('  ', item)
 
     def __repr__(self):
          return 'Nome: {} Curriculo:{} Artigos:{} E-mail:{}'.format(
@@ -91,7 +95,6 @@ class Evento:
             self.endereco
         )
 
-
 class EventoCientifico(Evento):
     def __init__(self, nome, eventoPrincipal, sigla, dataHoraDeInicio, palavrasChave, logotipo, realizador, endereco, issn):
         self.issn = issn
@@ -120,15 +123,16 @@ class ArtigoCientifico:
          self.autores.append(Autor.nome)
          Autor.artigos.append(self.titulo)
 
-    def autores(self):
-        for autores in self.autores:
-            print(autores)
+    def imprime(self):
+        print('Autores: ')
+        for item in self.autores:
+            print('  ', item)
 
     def __repr__(self):
         return 'Titulo: {} Autores:{} Evento:{}'.format(
             self.titulo,
             self.autores,
-            self.evento,
+            self.evento
         )
 
 

@@ -3,6 +3,12 @@ class Pessoa:
         self.nome = nome
         self.email = email
 
+    def __repr__(self):
+        return 'Nome: {} E-mail: {}'.format(
+            self.nome,
+            self.email
+        )
+
 
 class PessoaJuridica(Pessoa):
     def __init__(self,nome, email, cnpj, razaoSocial):
@@ -32,7 +38,7 @@ class PessoaFisica(Pessoa):
         )
 
 class Autor(Pessoa):
-    def __init__(self,nome, email, curriculo):
+    def __init__(self, nome, email, curriculo):
         self.curriculo = curriculo
         self.artigos = []
         super().__init__(nome, email)
@@ -53,6 +59,15 @@ class Endereco:
         self.lote = lote
         self.cep = cep
 
+    def __repr__(self):
+        return 'Cidade: {} UF: {} Rua: {} Lote: {} CEP: {}'.format(
+            self.cidade,
+            self.uf,
+            self.rua,
+            self.lote,
+            self.cep
+        )
+
 class Evento:
     def __init__(self, nome, eventoPrincipal, sigla, dataHoraDeInicio, palavrasChave, logotipo, realizador, endereco):
         self.nome = nome
@@ -63,6 +78,18 @@ class Evento:
         self.logotipo = logotipo
         self.realizador = realizador
         self.endereco = endereco
+
+    def __repr__(self):
+        return 'Nome: {} Evento Principal: {} Sigla: {} Data/Hora de inicio: {} Palavras Chave: {} Logotipo: {} Realizador: {} Endereço: {}'.format(
+            self.nome,
+            self.eventoPrincipal,
+            self.sigla,
+            self.dataHoraDeInicio,
+            self.palavrasChave,
+            self.logotipo,
+            self.realizador,
+            self.endereco
+        )
 
 
 class EventoCientifico(Evento):
@@ -91,7 +118,7 @@ class ArtigoCientifico:
 
     def addAutor(self, Autor):
          self.autores.append(Autor.nome)
-         Autor.artigos.append(artigo.titulo)
+         Autor.artigos.append(self.titulo)
 
     def autores(self):
         for autores in self.autores:
@@ -106,20 +133,3 @@ class ArtigoCientifico:
 
 
 
-#####TESTES
-realizador = PessoaFisica('stefani','carol@com','88888888')
-endereco = Endereco('Palmas','TO','405 NORTE','3','77002-018')
-evento = Evento('nome', 'eventoPrincipal', 'sigla', 'dataHoraDeInicio', 'palavrasChave', 'logotipo', realizador, endereco)
-eventoC = EventoCientifico('nome', 'eventoPrincipal', 'sigla', 'dataHoraDeInicio', 'palavrasChave', 'logotipo', 'realizador', 'endereco', 'issn')
-artigo = ArtigoCientifico('T1','evento')
-artigo2 = ArtigoCientifico('T2','evento')
-autor = Autor('carol', 'carol@mmgm.com','curicu')
-autor2 = Autor('stefani','jskaj','kkskak')
-artigo.addAutor(autor)
-artigo.addAutor(autor2)
-artigo2.addAutor(autor)
-artigo2.addAutor(autor2)
-print(artigo)
-print(eventoC)
-print(autor)
-print(autor2)
